@@ -1,1 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+/* Ajustes generales */
+body {
+    padding-top: 56px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Estilo para enlaces activos */
+  .nav-link.active {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+  
+  /* Mejoras visuales para el dropdown */
+  .dropdown-menu {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Ajuste para el contenedor principal */
+  main {
+    flex: 1;
+  }

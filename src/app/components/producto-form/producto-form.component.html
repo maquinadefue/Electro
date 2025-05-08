@@ -1,0 +1,12 @@
+<div class="form-container">
+    <h2>Agregar producto</h2>
+    <form (ngSubmit)="addProduct()">
+      <input type="text" placeholder="Código" [(ngModel)]="product.code" name="code" required />
+      <input type="text" placeholder="Nombre" [(ngModel)]="product.name" name="name" required />
+      <input type="number" placeholder="Precio" [(ngModel)]="product.price" name="price" required />
+      <input type="text" placeholder="Peso (kg, ml, lt)" [(ngModel)]="product.weight" name="weight" required />
+      <input type="text" placeholder="URL de imagen" [(ngModel)]="product.imageUrl" name="imageUrl" />
+      
+      <button mat-button type="submit">Agregar</button>
+    </form>
+  </div>
