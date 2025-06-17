@@ -13,7 +13,8 @@ export class ProductoFormComponent {
     code: '',
     name: '',
     price: 0,
-    weight: '',
+    caracteristicas: '', // antes era 'weight'
+    existencia: true,
     imageUrl: ''
   };
 
@@ -22,7 +23,16 @@ export class ProductoFormComponent {
   addProduct() {
     this.productService.createProduct(this.product).subscribe(() => {
       alert('Producto agregado correctamente');
-      this.product = { code: '', name: '', price: 0, weight: '', imageUrl: '' };
+
+      // Reiniciar el formulario con valores vacíos
+      this.product = {
+        code: '',
+        name: '',
+        price: 0,
+        caracteristicas: '',
+        existencia: true,
+        imageUrl: ''
+      };
     });
   }
 }

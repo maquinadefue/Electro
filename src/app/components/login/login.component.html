@@ -1,0 +1,46 @@
+<div class="login-container">
+  <div class="login-card">
+    <h2 class="login-title">Panel Administrativo</h2>
+    
+    <form (ngSubmit)="login()" class="login-form">
+      <div class="form-group">
+        <label for="username">Administrador</label>
+        <input 
+          [(ngModel)]="credentials.username" 
+          name="username" 
+          id="username"
+          type="text" 
+          placeholder="Ingrese su usuario"
+          class="form-control"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Contraseña</label>
+        <input 
+          [(ngModel)]="credentials.password" 
+          name="password" 
+          id="password"
+          type="password" 
+          placeholder="Ingrese su contraseña"
+          class="form-control"
+          required
+        />
+      </div>
+
+      <button 
+        type="submit" 
+        class="login-button"
+        [disabled]="isLoading"
+      >
+        <span *ngIf="!isLoading">Iniciar Sesión</span>
+        <span *ngIf="isLoading">Verificando...</span>
+      </button>
+
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
+    </form>
+  </div>
+</div>

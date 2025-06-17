@@ -8,6 +8,11 @@ import { ProductoListComponent } from './components/producto-list/producto-list.
 import { InicioComponent } from './components/inicio/inicio.component';
 import { FormsModule } from '@angular/forms'; // 👈 Agrega esto
 import { HttpClientModule } from '@angular/common/http';
+import { ContactoComponent } from './components/contacto/contacto.component';
+import { CommonModule } from '@angular/common';
+import { LoginComponent } from './components/login/login.component';
+import { AdminComponent } from './components/admin/admin.component';
+
 
 
 
@@ -16,13 +21,17 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     ProductoFormComponent,
     ProductoListComponent,
-    InicioComponent
+    InicioComponent,
+    ContactoComponent,
+    LoginComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

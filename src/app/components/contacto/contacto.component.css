@@ -1,0 +1,28 @@
+/* Estilos personalizados */
+.feature {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    font-size: 2rem;
+  }
+  
+  .card {
+    transition: transform 0.3s;
+    border-radius: 1rem;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  textarea {
+    resize: none;
+  }
+  
+  /* Ajustes para el mapa */
+  .ratio iframe {
+    filter: grayscale(20%) contrast(90%);
+    border: 0;
+  }

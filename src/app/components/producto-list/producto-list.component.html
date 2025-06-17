@@ -1,11 +1,15 @@
 <div class="cards-container">
-    <div class="card" *ngFor="let p of products">
-      <img [src]="p.imageUrl" alt="producto" />
-      <h3>{{ p.name }}</h3>
-      <p>Código: {{ p.code }}</p>
-      <p>Precio: ${{ p.price }}</p>
-      <p>Peso: {{ p.weight }}</p>
-      <button class="edit" (click)="editProduct(p)">✏</button>
-      <button class="delete" (click)="deleteProduct(p._id)">🗑</button>
-    </div>
+  <div class="card" *ngFor="let p of products">
+    <img [src]="p.imageUrl" alt="producto" />
+    <h3>{{ p.name }}</h3>
+    <p>Código: {{ p.code }}</p>
+    <p>Precio: ${{ p.price }}</p>
+    <p>Características: {{ p.caracteristicas }}</p>
+    <p *ngIf="p.existencia">Disponible</p>
+    <p *ngIf="!p.existencia">No disponible</p>
+    <div *ngIf="authService.isLoggedIn()">
+    <button (click)="editProduct(p)">✏</button>
+    <button *ngIf="p._id" (click)="deleteProduct(p._id)">🗑</button>
   </div>
+  </div>
+</div>
