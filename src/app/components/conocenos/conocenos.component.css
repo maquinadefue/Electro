@@ -1,25 +1,193 @@
-/* Estilos personalizados */
+/* === ESTILOS PARA CONÓCENOS === */
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a192f 0%, #5a0d0d 100%);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  position: relative;
+  overflow: hidden;
+  padding: 1rem;
+}
+
+/* Animación del fondo */
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Patrón geométrico */
+.login-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+      radial-gradient(circle at 10% 20%, rgba(255,255,255,0.05) 0%, transparent 20%),
+      radial-gradient(circle at 90% 80%, rgba(255,255,255,0.05) 0%, transparent 20%);
+  z-index: 0;
+}
+
+/* === TARJETA DE LOGIN === */
+.login-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  width: 100%;
+  max-width: 1200px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.877);
+  border: 1px solid rgba(238, 213, 213, 0.877);
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease, box-shadow 0.3s;
+}
+
+.login-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Efecto de brillo al pasar el mouse */
+.login-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.15) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+  z-index: -1;
+  border-radius: 16px;
+}
+
+.login-card:hover::before {
+  opacity: 1;
+}
+
+/* === TÍTULO === */
+.login-title {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+  font-weight: bold;
+  position: relative;
+}
+
+.login-title::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: #d1001c;
+  border-radius: 3px;
+}
+
+/* === TARJETAS === */
 .card {
-  transition: transform 0.3s ease;
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(12px);
+  border-radius: 1rem;
+  border: 1px solid rgba(238, 213, 213, 0.3);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.877);
+  transition: transform 0.3s ease, box-shadow 0.3s;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  border-color: rgba(238, 213, 213, 0.6);
 }
 
+/* Efecto de brillo al pasar el mouse */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.15) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+/* Placeholder de imagen */
+.card-image-placeholder {
+  height: 300px;
+  border-radius: 1rem;
+}
+
+.bg-gradient-red {
+  background: linear-gradient(to bottom right, #d1001c, #8a0b1c);
+}
+
+/* === ICONOS === */
 .icon-square {
   width: 60px;
   height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0 auto;
 }
 
-.img-fluid {
-  max-height: 300px;
-  object-fit: cover;
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .login-button, .btn-outline-light {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .login-card {
+    padding: 1.5rem;
+  }
+  
+  .row.align-items-center {
+    flex-direction: column;
+  }
+  
+  .col-md-6:first-child {
+    margin-bottom: 2rem;
+  }
 }
 
-.bg-light {
-  background-color: #f8f9fa!important;
+@media (max-width: 480px) {
+  .login-card {
+    padding: 1.2rem;
+  }
+  
+  .login-title {
+    font-size: 1.5rem;
+  }
+  
+  .card-image-placeholder {
+    height: 200px;
+  }
 }

@@ -1,11 +1,13 @@
-<section class="py-5">
-    <div class="container px-4 px-lg-5">
+<div class="login-container">
+  <div class="login-card">
+    <section class="py-4">
       <!-- Encabezado de sección -->
       <div class="text-center mb-5">
-        <h2 class="fw-bolder">Bienvenido a nuestra tienda</h2>
-        <p class="lead">Descubre nuestros productos destacados</p>
+        <h2 class="login-title">Bienvenido a Electro-Carr</h2>
+        <p class="text-light">Descubre nuestros productos destacados</p>
+        <div class="divider-line"></div>
       </div>
-  
+
       <!-- Tarjetas de productos destacados -->
       <div class="row gx-4 gx-lg-5 row-cols-1 row-cols-md-2 row-cols-xl-3">
         <!-- Producto 1 -->
@@ -16,9 +18,9 @@
             <!-- Detalles del producto -->
             <div class="card-body p-4">
               <div class="text-center">
-                <h5 class="fw-bolder">Producto Destacado</h5>
-                <p class="text-muted">PROTEGE A TU AUTO DEL LODO, MANTENLO LIMPIO DURANTE MÀS TIEMPO</p>
-                <span class="text-primary fw-bold">$700</span>
+                <h5 class="fw-bolder text-white">Protege Tu Auto</h5>
+                <p class="text-light">MANTENLO LIMPIO DURANTE MÁS TIEMPO</p>
+                <span class="text-warning fw-bold">$700</span>
               </div>
             </div>
             <!-- Acciones -->
@@ -29,18 +31,18 @@
             </div>
           </div>
         </div>
-  
+
         <!-- Producto 2 -->
         <div class="col mb-5">
           <div class="card h-100 shadow-sm">
             <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9ivyWlQx5OsB8Q9FouGMDrg10cG3N6J65rA&s" alt="Producto 2">
             <div class="card-body p-4">
               <div class="text-center">
-                <h5 class="fw-bolder">Oferta Especial</h5>
-                <p class="text-muted">QUITA RAYONES LIGEROS EN PINTURAS NUEVAS Y SEMINUEVAS, SIN DAÑAR LA PINTURA DE TU AUTO.</p>
+                <h5 class="fw-bolder text-white">Oferta Especial</h5>
+                <p class="text-light">QUITA RAYONES LIGEROS SIN DAÑAR LA PINTURA</p>
                 <div>
-                  <span class="text-primary fw-bold">$72</span>
-                  <span class="text-decoration-line-through text-muted ms-2">$100</span>
+                  <span class="text-warning fw-bold">$72</span>
+                  <span class="text-decoration-line-through text-light ms-2">$100</span>
                 </div>
               </div>
             </div>
@@ -51,16 +53,16 @@
             </div>
           </div>
         </div>
-  
+
         <!-- Producto 3 -->
         <div class="col mb-5">
           <div class="card h-100 shadow-sm">
-            <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5QAn2XKxo2093W_Ub_f7zCYRaVxg4CiaUXA&s" alt="Producto 3">
+           <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5QAn2XKxo2093W_Ub_f7zCYRaVxg4CiaUXA&s" alt="Producto 3">
             <div class="card-body p-4">
               <div class="text-center">
-                <h5 class="fw-bolder">Nuevo Lanzamiento</h5>
-                <p class="text-muted">LA PANTALLA SUAVE CON LÁMPARA DE OJOS DE COLORES PARA VENTANAS DE AUTOMÓVILES SE PUEDE DOBLAR, PLEGAR Y DAR FORMA PARA ADAPTARSE A UNA VARIEDAD DE SUPERFICIES</p>
-                <span class="text-primary fw-bold">$1300</span>
+                <h5 class="fw-bolder text-white">Nuevo Lanzamiento</h5>
+                <p class="text-light">PANTALLA SUAVE CON LÁMPARA DE COLORES PARA AUTOMÓVILES</p>
+                <span class="text-warning fw-bold">$1300</span>
               </div>
             </div>
             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -71,12 +73,15 @@
           </div>
         </div>
       </div>
-  
+
       <!-- Llamado a la acción -->
       <div class="text-center mt-5">
-        <h3 class="fw-bolder mb-3">¿Listo para comenzar?</h3>
+        <h3 class="login-title mb-3">¿Listo para comenzar?</h3>
+        <div class="cta-buttons">
         <a routerLink="/producto-list" class="btn btn-primary btn-lg px-4 me-2">Ver productos</a>
         <a routerLink="/contacto" class="btn btn-primary btn-lg px-4 me-2">Contáctanos</a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </div>
+</div>

@@ -1,21 +1,257 @@
-/* Estilos personalizados para el componente */
+/* === ESTILOS PARA INICIO === */
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a192f 0%, #5a0d0d 100%);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  position: relative;
+  overflow: hidden;
+  padding: 1rem;
+}
+
+/* Animación del fondo */
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Patrón geométrico */
+.login-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+      radial-gradient(circle at 10% 20%, rgba(255,255,255,0.05) 0%, transparent 20%),
+      radial-gradient(circle at 90% 80%, rgba(255,255,255,0.05) 0%, transparent 20%);
+  z-index: 0;
+}
+
+/* === TARJETA DE LOGIN === */
+.login-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  width: 100%;
+  max-width: 1200px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.877);
+  border: 1px solid rgba(238, 213, 213, 0.877);
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease, box-shadow 0.3s;
+}
+
+.login-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Efecto de brillo al pasar el mouse */
+.login-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.15) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+  z-index: -1;
+  border-radius: 16px;
+}
+
+.login-card:hover::before {
+  opacity: 1;
+}
+
+/* === TÍTULO === */
+.login-title {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+  font-weight: bold;
+  position: relative;
+}
+
+.login-title::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: #d1001c;
+  border-radius: 3px;
+}
+
+/* === TARJETAS DE PRODUCTOS === */
 .card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(12px);
+  border-radius: 1rem;
+  border: 1px solid rgba(238, 213, 213, 0.3);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.877);
+  transition: transform 0.3s ease, box-shadow 0.3s;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  border-color: rgba(238, 213, 213, 0.6);
+}
+
+/* Efecto de brillo al pasar el mouse */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.15) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+/* Placeholder de imagen */
+.card-image-placeholder {
+  height: 100px;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+/* === DIVISOR DE SECCIÓN === */
+.divider-line {
+  height: 3px;
+  width: 100px;
+  background: linear-gradient(to right, #d1001c, #0a192f);
+  margin: 1.5rem auto;
+  border-radius: 3px;
+}
+
+/* === BOTONES === */
+.btn-outline-primary {
+  border-color: #d1001c !important;
+  color: #d1001c !important;
+  font-weight: bold;
+  transition: all 0.3s;
+  border-radius: 50px;
+  padding: 0.5rem 1.5rem;
+}
+
+.btn-outline-primary:hover {
+  background-color: #d1001c !important;
+  color: white !important;
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(209, 0, 28, 0.4);
+}
+
+.btn-primary {
+  background: linear-gradient(to right, #d1001c, #8a0b1c);
+  border: none;
+  font-weight: bold;
+  border-radius: 50px;
+  padding: 0.75rem 1.75rem;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(209, 0, 28, 0.4);
+}
+
+.btn-primary::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: 0.5s;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+.btn-outline-light {
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #fff;
+  background: transparent;
+  transition: all 0.3s;
+}
+
+.btn-outline-light:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #fff;
+}
+/* === BOTONES DE ACCIÓN === */
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* === ESTILOS DE TEXTO === */
+.text-white {
+  color: #fff !important;
+}
+
+.text-light {
+  color: #e0e0e0 !important;
+}
+
+.text-warning {
+  color: #ffcc00 !important;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
   }
   
-  .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.15);
+  .login-button, .btn-outline-light {
+    width: 100%;
+    max-width: 300px;
   }
   
-  .btn-outline-primary {
-    transition: all 0.3s ease;
+  .login-card {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-card {
+    padding: 1.2rem;
   }
   
-  .card-img-top {
-    height: 200px;
-    object-fit: cover;
-    border-top-left-radius: 0.5rem;
-    border-top-right-radius: 0.5rem;
+  .login-title {
+    font-size: 1.5rem;
   }
+}
