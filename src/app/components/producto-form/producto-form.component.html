@@ -1,16 +1,16 @@
-<div class="form-container"> 
-  <h2>Agregar producto</h2>
-  <form (ngSubmit)="addProduct()">
+<div class="form-container">  
+  <h2>{{ product._id ? 'Editar producto' : 'Agregar producto' }}</h2>
+  <form (ngSubmit)="saveProduct()">
     <input type="text" placeholder="Código" [(ngModel)]="product.code" name="code" required />
     <input type="text" placeholder="Nombre" [(ngModel)]="product.name" name="name" required />
     <input type="number" placeholder="Precio" [(ngModel)]="product.price" name="price" required />
     <input type="text" placeholder="Características" [(ngModel)]="product.caracteristicas" name="caracteristicas" required />
     <input type="text" placeholder="URL de imagen" [(ngModel)]="product.imageUrl" name="imageUrl" />
-
     <label>
       <input type="checkbox" [(ngModel)]="product.existencia" name="existencia" /> Disponible
     </label>
-
-    <button mat-button type="submit">Agregar</button>
+    <button mat-button type="submit">
+      {{ product._id ? 'Actualizar' : 'Agregar' }}
+    </button>
   </form>
 </div>
