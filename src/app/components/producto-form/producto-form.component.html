@@ -1,16 +1,49 @@
-<div class="form-container">  
-  <h2>{{ product._id ? 'Editar producto' : 'Agregar producto' }}</h2>
-  <form (ngSubmit)="saveProduct()">
-    <input type="text" placeholder="Código" [(ngModel)]="product.code" name="code" required />
-    <input type="text" placeholder="Nombre" [(ngModel)]="product.name" name="name" required />
-    <input type="number" placeholder="Precio" [(ngModel)]="product.price" name="price" required />
-    <input type="text" placeholder="Características" [(ngModel)]="product.caracteristicas" name="caracteristicas" required />
-    <input type="text" placeholder="URL de imagen" [(ngModel)]="product.imageUrl" name="imageUrl" />
-    <label>
-      <input type="checkbox" [(ngModel)]="product.existencia" name="existencia" /> Disponible
-    </label>
-    <button mat-button type="submit">
-      {{ product._id ? 'Actualizar' : 'Agregar' }}
-    </button>
+<div class="form-wrapper">
+  <form class="product-form" (ngSubmit)="saveProduct()">
+    <h2>{{ product._id ? 'Editar producto' : 'Agregar producto' }}</h2>
+
+    <div class="form-group">
+      <label>Código</label>
+      <input type="text" [(ngModel)]="product.code" name="code" required />
+    </div>
+
+    <div class="form-group">
+      <label>Nombre</label>
+      <input type="text" [(ngModel)]="product.name" name="name" required />
+    </div>
+
+    <div class="form-group">
+      <label>Precio</label>
+      <input type="number" [(ngModel)]="product.price" name="price" required />
+    </div>
+
+    <div class="form-group">
+      <label>Características</label>
+      <textarea [(ngModel)]="product.caracteristicas" name="caracteristicas" required></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>URL de imagen</label>
+      <input type="text" [(ngModel)]="product.imageUrl" name="imageUrl" />
+    </div>
+
+    <div class="form-group">
+      <label>Sección</label>
+      <input type="text" [(ngModel)]="product.seccion" name="seccion" required />
+    </div>
+
+    <div class="form-group inline">
+      <label>
+        <input type="checkbox" [(ngModel)]="product.existencia" name="existencia" />
+        Disponible
+      </label>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit">
+        {{ product._id ? 'Actualizar' : 'Agregar' }}
+      </button>
+    </div>
   </form>
 </div>
+

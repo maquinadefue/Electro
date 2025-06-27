@@ -16,7 +16,8 @@ export class ProductoFormComponent implements OnInit {
     price: 0,
     caracteristicas: '',
     existencia: true,
-    imageUrl: ''
+    imageUrl: '',
+    seccion: '',
   };
 
   constructor(
@@ -25,6 +26,7 @@ export class ProductoFormComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    // Cargar datos si se está editando
     this.route.queryParams.subscribe(params => {
       const id = params['id'];
       if (id) {
@@ -36,14 +38,20 @@ export class ProductoFormComponent implements OnInit {
   }
 
   saveProduct() {
+    // Validación manual previa
+    if (!this.product.code || !this.product.name || !this.product.caracteristicas || !this.product.seccion || !this.product.price) {
+      alert('⚠️ Por favor completa todos los campos obligatorios.');
+      return;
+    }
+
     if (this.product._id) {
       this.productService.updateProduct(this.product._id, this.product).subscribe(() => {
-        alert('Producto actualizado correctamente');
+        alert('✅ Producto actualizado correctamente');
         this.resetForm();
       });
     } else {
       this.productService.createProduct(this.product).subscribe(() => {
-        alert('Producto agregado correctamente');
+        alert('✅ Producto agregado correctamente');
         this.resetForm();
       });
     }
@@ -56,7 +64,8 @@ export class ProductoFormComponent implements OnInit {
       price: 0,
       caracteristicas: '',
       existencia: true,
-      imageUrl: ''
+      imageUrl: '',
+      seccion: '',
     };
   }
 }

@@ -3,9 +3,9 @@ export interface Product {
   code: string;
   name: string;
   price: number;
-  caracteristicas: string;  // ✅ antes era 'weight'
-  existencia: boolean;      // ✅ nuevo campo
+  caracteristicas: string;
+  existencia?: boolean;
   imageUrl?: string;
-  createdAt?: string;
-  updatedAt?: string;
+  seccion: string; // 🆕
 }
+

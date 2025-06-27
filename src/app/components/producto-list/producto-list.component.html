@@ -1,15 +1,38 @@
-<div class="cards-container">
-  <div class="card" *ngFor="let p of products">
-    <img [src]="p.imageUrl" alt="producto" />
-    <h3>{{ p.name }}</h3>
-    <p>Código: {{ p.code }}</p>
-    <p>Precio: ${{ p.price }}</p>
-    <p>Características: {{ p.caracteristicas }}</p>
-    <p *ngIf="p.existencia">Disponible</p>
-    <p *ngIf="!p.existencia">No disponible</p>
-    <div *ngIf="authService.isLoggedIn()">
-    <button (click)="editProduct(p)">✏</button>
-    <button *ngIf="p._id" (click)="deleteProduct(p._id)">🗑</button>
-  </div>
+<div class="catalog-wrapper">
+  <div class="catalog-container">
+    <div class="filters">
+      <input
+        type="text"
+        class="search-input"
+        placeholder="🔍 Buscar por nombre o código..."
+        [(ngModel)]="searchTerm"
+        (input)="onSearchChange()"
+      />
+
+      <select class="section-select" [(ngModel)]="selectedSection" (change)="onSectionChange()">
+        <option value="">Todas las secciones</option>
+        <option *ngFor="let s of sections" [value]="s">{{ s }}</option>
+      </select>
+    </div>
+
+    <div class="cards-grid">
+      <div class="product-card" *ngFor="let p of filteredProducts">
+        <img [src]="p.imageUrl" alt="producto" class="product-image" />
+        <div class="product-details">
+          <h3>{{ p.name }}</h3>
+          <p><strong>Código:</strong> {{ p.code }}</p>
+          <p><strong>Precio:</strong> ${{ p.price }}</p>
+          <p><strong>Características:</strong> {{ p.caracteristicas }}</p>
+          <p><strong>Sección:</strong> {{ p.seccion }}</p>
+          <p [ngClass]="p.existencia ? 'disponible' : 'agotado'">
+            {{ p.existencia ? '✅ Disponible' : '❌ No disponible' }}
+          </p>
+        </div>
+        <div class="actions" *ngIf="authService.isLoggedIn()">
+          <button class="edit-btn" (click)="editProduct(p)">✏</button>
+          <button class="delete-btn" *ngIf="p._id" (click)="deleteProduct(p._id!)">🗑</button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

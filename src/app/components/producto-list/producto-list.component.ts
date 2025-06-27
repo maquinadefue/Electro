@@ -8,15 +8,20 @@ import { Router } from '@angular/router';
   selector: 'app-producto-list',
   templateUrl: './producto-list.component.html',
   styleUrls: ['./producto-list.component.css'],
-  standalone: false
+  standalone: false,
 })
 export class ProductoListComponent implements OnInit {
   products: Product[] = [];
+  filteredProducts: Product[] = [];
+  searchTerm: string = '';
+  selectedSection: string = '';
+
+  sections: string[] = []; // 🆕 Lista de secciones disponibles
 
   constructor(
     private productService: ProductService,
-    public authService: AuthService, // 👈 Hacemos público para usar en el HTML
-    private router: Router // 👈 Para redirigir en editar
+    public authService: AuthService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -26,18 +31,38 @@ export class ProductoListComponent implements OnInit {
   loadProducts() {
     this.productService.getProducts().subscribe(data => {
       this.products = data;
+      this.sections = [...new Set(data.map(p => p.seccion))]; // Obtener secciones únicas
+      this.filterProducts();
     });
   }
 
+  filterProducts() {
+    this.filteredProducts = this.products.filter(p => {
+      const matchesSearch = this.searchTerm.trim() === '' || 
+        p.name.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+        p.code.toLowerCase().includes(this.searchTerm.toLowerCase());
+      const matchesSection = this.selectedSection === '' || 
+        p.seccion === this.selectedSection;
+      return matchesSearch && matchesSection;
+    });
+  }
+
+  onSearchChange() {
+    this.filterProducts();
+  }
+
+  onSectionChange() {
+    this.filterProducts();
+  }
+
   editProduct(product: Product) {
-    // Aquí puedes redirigir al formulario con el ID del producto, o guardar el producto en un servicio
     this.router.navigate(['/producto-form'], { queryParams: { id: product._id } });
   }
 
   deleteProduct(id: string) {
     if (confirm('¿Estás seguro de que quieres eliminar este producto?')) {
       this.productService.deleteProduct(id).subscribe(() => {
-        this.loadProducts(); // Recarga la lista después de eliminar
+        this.loadProducts();
       });
     }
   }
