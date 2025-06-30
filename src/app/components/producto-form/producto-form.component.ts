@@ -14,7 +14,7 @@ export class ProductoFormComponent implements OnInit {
     code: '',
     name: '',
     price: 0,
-    caracteristicas: '',
+    descripcion: '',
     existencia: true,
     imageUrl: '',
     seccion: '',
@@ -39,7 +39,7 @@ export class ProductoFormComponent implements OnInit {
 
   saveProduct() {
     // Validación manual previa
-    if (!this.product.code || !this.product.name || !this.product.caracteristicas || !this.product.seccion || !this.product.price) {
+    if (!this.product.code || !this.product.name || !this.product.descripcion || !this.product.seccion || !this.product.price) {
       alert('⚠️ Por favor completa todos los campos obligatorios.');
       return;
     }
@@ -62,7 +62,7 @@ export class ProductoFormComponent implements OnInit {
       code: '',
       name: '',
       price: 0,
-      caracteristicas: '',
+      descripcion: '',
       existencia: true,
       imageUrl: '',
       seccion: '',

@@ -3,7 +3,7 @@ export interface Product {
   code: string;
   name: string;
   price: number;
-  caracteristicas: string;
+  descripcion: string;
   existencia?: boolean;
   imageUrl?: string;
   seccion: string; // 🆕

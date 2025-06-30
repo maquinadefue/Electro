@@ -22,7 +22,7 @@
           <h3>{{ p.name }}</h3>
           <p><strong>Código:</strong> {{ p.code }}</p>
           <p><strong>Precio:</strong> ${{ p.price }}</p>
-          <p><strong>Características:</strong> {{ p.caracteristicas }}</p>
+          <p><strong>Descripción:</strong> {{ p.descripcion }}</p>
           <p><strong>Sección:</strong> {{ p.seccion }}</p>
           <p [ngClass]="p.existencia ? 'disponible' : 'agotado'">
             {{ p.existencia ? '✅ Disponible' : '❌ No disponible' }}
