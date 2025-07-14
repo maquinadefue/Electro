@@ -1,22 +1,28 @@
 <div class="login-container">
   <div class="login-card">
     <h2 class="login-title">Panel Administrativo</h2>
-    <p class="text-white">👉 Solo podras ingresar si eres Administrador</p>
-    
-    <form (ngSubmit)="login()" class="login-form">
+    <p class="text-white">👉 Solo podrás ingresar si eres Administrador</p>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
       <div class="form-group">
         <label for="username">
           <i class="bi bi-person-fill"></i> Administrador
         </label>
         <input 
-          [(ngModel)]="credentials.username" 
-          name="username" 
+          formControlName="username"
           id="username"
-          type="text" 
+          type="text"
           placeholder="Ingrese su usuario"
           class="form-control"
-          required
         />
+        <div *ngIf="loginForm.get('username')?.touched && loginForm.get('username')?.invalid" class="error-message">
+          <small *ngIf="loginForm.get('username')?.errors?.['required']">
+            El usuario es requerido.
+          </small>
+          <small *ngIf="loginForm.get('username')?.errors?.['minlength']">
+            Debe tener al menos 4 caracteres.
+          </small>
+        </div>
       </div>
 
       <div class="form-group">
@@ -24,20 +30,26 @@
           <i class="bi bi-lock-fill"></i> Contraseña
         </label>
         <input 
-          [(ngModel)]="credentials.password" 
-          name="password" 
+          formControlName="password"
           id="password"
-          type="password" 
+          type="password"
           placeholder="Ingrese su contraseña"
           class="form-control"
-          required
         />
+        <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid" class="error-message">
+          <small *ngIf="loginForm.get('password')?.errors?.['required']">
+            La contraseña es requerida.
+          </small>
+          <small *ngIf="loginForm.get('password')?.errors?.['minlength']">
+            Debe tener al menos 6 caracteres.
+          </small>
+        </div>
       </div>
 
       <button 
         type="submit" 
         class="login-button"
-        [disabled]="isLoading"
+        [disabled]="loginForm.invalid || isLoading"
       >
         <span *ngIf="!isLoading">Iniciar Sesión</span>
         <span *ngIf="isLoading">Verificando...</span>
